@@ -55,7 +55,7 @@ class Google_Calendar(object):
                            to determine which calendar to opperate within
         :type param: str
         """
-
+        print(self.auth.service2.calendarList())
         groupCalendar = {
 
             'id': calId

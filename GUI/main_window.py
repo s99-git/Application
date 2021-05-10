@@ -478,10 +478,15 @@ class Main_Window(Ui_main_window):
     # currently not connected to the db
     def accept_invite(self):
         invites = self.invites_list.selectedItems()
+        print(invites)
         if len(invites) == 1:
             self.db.invite_accept(invites[0].group_id)
-            self.google_client.google_calendar.addAccessRule(invites[0].calendar_id, self.db.user.user_id)
+            print("invite cal id: ", invites[0].calendar_id)
+            print("user id: ", self.db.user.user_id)
+            thing = self.google_client.google_calendar.addAccessRule(invites[0].calendar_id, self.db.user.user_id)
+            print(thing)
             self.google_client.google_calendar.AddToCalendarList(invites[0].calendar_id)
+
             self.get_invites()
             """invite = self.invites_list.takeItem(self.invites_list.row(self.invites_list.currentItem()))
             self.groups_node.appendRow(StandardItem(invite.text()))"""
