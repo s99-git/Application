@@ -1,0 +1,9 @@
+client_config_file: client_secrets.json
+
+oauth_scope:
+  - https://www.googleapis.com/auth/drive
+  - https://www.googleapis.com/auth/calendar
+
+save_credentials: True
+save_credentials_backend: file
+save_credentials_file: credentials.json
